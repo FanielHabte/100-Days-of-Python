@@ -1,7 +1,6 @@
 import turtle
 from symtable import Class
 from turtle import Turtle
-
 import pandas as pd
 
 image = "blank_states_img.gif"
