@@ -1,6 +1,6 @@
 """
-TODO - Project Requirments
-1. if correct state use the corrdinates in the csv file to write in the canvas
+TODO - Project requirements
+1. if correct state use the coordinates in the csv file to write in the canvas
 2. if not correct state ask the question again
 3. count the correct number of states and show it in the header
 4. when the user exits, generate a csv file that lists state that haven't not been answered correctly
@@ -51,15 +51,13 @@ while len(correct_states) < 50:
 
     if answer_state.lower() == "exit":
 
-        for state in state_names_list:
-            if state not in correct_states:
-                missed_states.append(state)
+        missed_states = [state for state in state_names_list if state not in correct_states]
         data = {"States to learn": missed_states}
         df = pd.DataFrame(data)
         df.to_csv(
             "Day 25 [United States Game]/United States [Project] [Active]/States to learn.csv",
-            index=False,
-        )
+            index=False,)
+        print("A file has been saved")
         break
 
     if answer_state in state_names_list:
